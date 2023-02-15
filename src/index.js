@@ -27,16 +27,20 @@ window
       // Create title node
       const title = document.createElement("h2");
       title.textContent = item.name;
-      title.className = "text-indigo-600 text-xl font-bold";
+      title.className = "text-[#347A08] text-xl font-bold";
       // Create price node
       const price = document.createElement("div");  
-      price.textContent = formatPrice(item.price);
+      price.textContent = "Price per unit: " + formatPrice(item.price);
       price.className = "font-medium";
+
+      // Create div container for texts
+      const divTextsContainer = document.createElement("div");
+      divTextsContainer.append(title, price);
 
       // Create a container for each group
       const groupContainer = document.createElement("div");
-      groupContainer.className = "grid place-items-center";
-      groupContainer.append(image, title, price);
+      groupContainer.className = "grid grid-cols-2 gap-2 place-items-center shadow-sm shadow-green-600";
+      groupContainer.append(image, divTextsContainer);
 
       // Push each element into the array
       allItems.push(groupContainer);
